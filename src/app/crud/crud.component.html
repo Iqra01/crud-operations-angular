@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="bread-crumb">
+                <h3 title="Students List">Students List</h3>
+                <button class="btn btn-primary add-btn" (click)="open(content)" title="Add New Student">
+                    <img src="../../assets/images/plus.svg" />Add New Student
+                </button>
+            </div>
+            <div class="table-div">
+                <table class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th title="ID">ID</th>
+                            <th title="Name">Name</th>
+                            <th title="Email">Email</th>
+                            <th title="Gender">Gender</th>
+                            <th [width]="128" title="Actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of users">
+                            <td>{{ i.id }}</td>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.gender }}</td>
+                            <td>
+                                <button class="btn btn-primary" (click)="editUser(i, content)" title="Edit">
+                                    <img src="../../assets/images/pencil.svg" width="15" />
+                                </button>
+                                <button class="btn btn-red" (click)="deleteUser(i.id)" title="Delete">
+                                    <img src="../../assets/images/trash.svg" width="15" />
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">{{selectedUser? "Edit Student": "New Student"}}</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="close(modal)">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Simple Form -->
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <div class="input-group">
+                                <input id="name" name="name" class="form-control" [(ngModel)]="name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-group">
+                                <input id="email" name="email" class="form-control" [(ngModel)]="email">
+                            </div>
+                        </div>
+                        <p>
+                            <input type="radio" value="male" name="gender" [(ngModel)]="gender"> Male
+                            <input type="radio" value="female" name="gender" [(ngModel)]="gender"> Female
+                        </p>
+                        <div>
+                            <div class="text-center">
+                                <button data-dismiss="modal" class="btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

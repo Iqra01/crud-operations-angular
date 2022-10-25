@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+.bread-crumb {
+    padding-bottom: 30px;
+    display: flex;
+    margin-top: 20px;
+    }
+    
+    h3{
+    margin-left: 25px;
+    margin-top: 10px;
+    }
+    
+    .add-btn {
+    margin-left: auto;
+    margin-right: 30px;
+    }
+    
+    .table-div{
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 1px 1px 1px #999;
+    }
+    
+    table{
+    text-align-last: center;
+    table-layout: fixed;
+    }
+    
+    thead{
+    background: black;
+    color: white;
+    }
+    
+    .btn-red{
+    --bs-btn-bg:rgb(250, 37, 37) !important;
+    --bs-btn-hover-bg: red;
+    margin-left: 6px;
+    }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
